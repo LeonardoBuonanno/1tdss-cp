@@ -16,7 +16,6 @@ def save_users_to_csv(filename, users):
         for email, name in users.items():
             file.write(f"{email},{name}\n")
 
-# Load existing users from CSV file (if any)
 filename = "users.csv"
 users = load_users_from_csv(filename)
 
@@ -39,7 +38,7 @@ while True:
         else:
             users[email] = name
             print(f"{name} Adicionado com sucesso!")
-            save_users_to_csv(filename, users)  # Save updated users to CSV
+            save_users_to_csv(filename, users)  
 
     elif choice == "2":
         email = input("Entre com o e-mail para remover: ")
@@ -47,7 +46,7 @@ while True:
         if email in users:
             del users[email]
             print(f"Usuário com o e-mail {email} removido com sucesso!")
-            save_users_to_csv(filename, users)  # Save updated users to CSV
+            save_users_to_csv(filename, users)  
         else:
             print("Usuário não encontrado")
 
