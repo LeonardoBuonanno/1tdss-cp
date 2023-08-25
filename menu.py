@@ -2,48 +2,50 @@ users = {}
 
 while True:
     print("\nUser Manager:")
-    print("1. Add user")
-    print("2. Remove user")
-    print("3. List all users")
-    print("4. Search user by email")
-    print("5. Exit")
+    print("1. Adicionar usuário")
+    print("2. Remover usurário")
+    print("3. Listar todos os usuários")
+    print("4. Pesquisar usuário por e-mail")
+    print("5. Sair")
     
-    choice = "5"
+    choice = input("Entre com a escolha: ")
 
     if choice == "1":
-        name = input("Enter name: ")
-        email = input("Enter email: ")
+        name = input("Entre com nome: ")
+        email = input("Entre com e-mail: ")
         
         if email in users:
-            print("User with this email already exists.")
+            print("Já existe usuário com este endereço de email.")
         else:
             users[email] = name
-            print(f"{name} added successfully!")
+            print(f"{name} Adicionado com sucesso!")
 
     elif choice == "2":
-        email = input("Enter email to remove: ")
+        email = input("Entre com o e-mail para remover: ")
         
         if email in users:
             del users[email]
-            print(f"User with email {email} removed successfully!")
+            print(f"Usuário com o e-mail {email} removido com sucesso!")
         else:
-            print("User not found.")
+            print("Usuário não encontrado")
 
     elif choice == "3":
         if not users:
-            print("No users in the list.")
+            print("Nenhum usuário na lista.")
         else:
             for email, name in users.items():
-                print(f"Name: {name}, Email: {email}")
+                print(f"Nome: {name}, E-mail: {email}")
 
     elif choice == "4":
-        email = input("Enter email to search: ")
+        email = input("Entre com o email para procurar: ")
         
         if email in users:
-            print(f"Name: {users[email]}, Email: {email}")
+            print(f"Nome: {users[email]}, E-mail: {email}")
         else:
-            print("User not found.")
+            print("Usuário não encontrado.")
 
     elif choice == "5":
-        print("Goodbye!")
+        print("Tchau Tchau!")
         break
+    else:
+        print("Opção inválida, entre com uma opção válida")
